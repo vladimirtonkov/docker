@@ -1,7 +1,5 @@
 FROM postgres:9.5.18
 
-RUN mkdir /sql
-RUN psql -f /sql/create_user.sql
-RUN psql -U user -W 123 -f create_db.sql
+RUN localedef -i en_US -C -F UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
-CMD create_db.sql
+CMD postgres
